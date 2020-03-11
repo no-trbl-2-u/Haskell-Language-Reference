@@ -31,14 +31,14 @@ handleFile file handler = do
 formatNumbers :: [String] -> [Int]
 formatNumbers = map readInt . concatMap words
 
-formatCsvToWorkers :: String -> Worker a
-formatCsvToWorkers = toWorker . splitOn ","
+formatCsvToWorkers :: [String] -> [Worker a]
+formatCsvToWorkers = map (toWorker . splitOn ",")
 
 -- Files
 numbersFile :: Show a => FileHandler a -> IO()
 numbersFile = handleFile "./src/numbers.txt"
--- Example - numbersFile $ sum . formatNumbers
+-- Example -- numbersFile $ sum . formatNumbers
 
 csvFile :: Show a => FileHandler a -> IO()
 csvFile = handleFile "./src/csvData.csv"
--- Example - csvFile $ map formatCsvToWorkers
+-- Example -- csvFile formatCsvToWorkers
