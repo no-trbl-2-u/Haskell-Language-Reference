@@ -17,7 +17,7 @@ readInt :: String -> Int
 readInt = read
 
 --toWorker :: String -> Worker
-toWorker str = 
+--toWorker str = 
 
 -- Main Driver
 handleFile :: Show a => FilePath -> FileHandler a -> IO ()
